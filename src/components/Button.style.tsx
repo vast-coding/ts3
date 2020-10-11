@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css, IDefaultTheme } from 'styled-components'
 
 type TSize = {
   size?: 'small' | 'medium' | 'large'
@@ -6,17 +6,19 @@ type TSize = {
 
 const sizes = ({ size }: TSize) => {
   if (size === 'small') {
-    return `
-    font-size: 12px;
-    padding: 10px 16px;
-    border:1px solid red;
-  `
+    return css`
+      font-size: 12px;
+      padding: 0 8px;
+      border: 1px solid red;
+      height: 16px;
+    `
   }
 
-  const defaultSize = `
-    font-size: 14px;
-    padding: 11px 20px;
-    border:1px solid blue;
+  const defaultSize = css`
+    font-size: 16px;
+    padding: 0 16px;
+    border: 1px solid blue;
+    height: 32px;
   `
 
   if (size === 'medium') {
@@ -24,11 +26,12 @@ const sizes = ({ size }: TSize) => {
   }
 
   if (size === 'large') {
-    return `
+    return css`
       font-size: 16px;
-      padding: 12px 24px;
-      border:1px solid green;
-  `
+      padding: 0 24px;
+      border: 1px solid green;
+      height: 40px;
+    `
   }
 
   return defaultSize
@@ -36,33 +39,34 @@ const sizes = ({ size }: TSize) => {
 
 type TVariant = {
   variant?: 'primary' | 'secondary' | 'outline'
+  theme: IDefaultTheme
 }
 
-const variants = ({ variant = 'primary' }: TVariant) => {
+const variants = ({ variant, theme }: TVariant) => {
   if (variant === 'primary') {
-    return `
-    border:1px solid blue;
-    background:blue;
-    color:white;
-  `
+    return css`
+      border: 1px solid ${theme.primaryColor};
+      background: ${theme.primaryColor};
+      color: white;
+    `
   }
   if (variant === 'secondary') {
-    return `
-    border:1px solid purple;
-    background:purple;
-    color:white;
-  `
+    return css`
+      border: 1px solid ${theme.secondaryColor};
+      background: ${theme.secondaryColor};
+      color: white;
+    `
   }
   if (variant === 'outline') {
-    return `
-    border:1px solid blue;
-    background:white;
-  `
+    return css`
+      border: 1px solid ${theme.secondaryColor};
+      background: white;
+    `
   }
   // Outline is default
-  return `
-    border:1px solid blue;
-    background:white;
+  return css`
+    border: 1px solid ${theme.secondaryColor};
+    background: white;
   `
 }
 
@@ -72,10 +76,10 @@ type TBg = {
 
 const overideBg = ({ backgroundColor }: TBg) => {
   if (backgroundColor) {
-    return `
-    border:1px solid ${backgroundColor};
-    background:${backgroundColor};
-  `
+    return css`
+      border: 1px solid ${backgroundColor};
+      background: ${backgroundColor};
+    `
   }
 }
 type TButtonStyles = TSize & TVariant & TBg
