@@ -8,10 +8,20 @@ export const App = () => (
     <GlobalStyle />
     <div>
       App
+      <Button>
+        {' '}
+        <div>div-child</div>{' '}
+      </Button>
       <Button> default </Button>
-      <Button size="small">small</Button>
-      <Button size="medium">medium</Button>
-      <Button size="large">large</Button>
+      <Button scale="large" disabled>
+        disabled
+      </Button>
+      <Button scale="large" type="submit">
+        submit
+      </Button>
+      <Button scale="small">small</Button>
+      <Button scale="medium">medium</Button>
+      <Button scale="large">large</Button>
       <Button variant="primary">primary</Button>
       <Button variant="secondary">secodary</Button>
       <Button variant="outline">outline</Button>

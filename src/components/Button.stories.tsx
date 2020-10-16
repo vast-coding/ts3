@@ -20,6 +20,20 @@ Primary.args = {
   children: 'Primary Button',
 }
 
+export const PrimarySubmit = Template.bind({})
+PrimarySubmit.args = {
+  variant: 'primary',
+  children: 'Primary Submit',
+  type: 'submit',
+}
+
+export const PrimaryDisabled = Template.bind({})
+PrimaryDisabled.args = {
+  variant: 'primary',
+  children: 'Primary Submit',
+  disabled: true,
+}
+
 export const DefaultVariant = Template.bind({})
 DefaultVariant.args = {
   children: 'default Variant Button',
@@ -39,18 +53,18 @@ Outline.args = {
 
 export const Large = Template.bind({})
 Large.args = {
-  size: 'large',
+  scale: 'large',
   children: 'Large Button',
 }
 
 export const Medium = Template.bind({})
 Medium.args = {
-  size: 'medium',
+  scale: 'medium',
   children: 'Medium Button',
 }
 
 export const Small = Template.bind({})
 Small.args = {
-  size: 'small',
+  scale: 'small',
   children: 'Small Button',
 }

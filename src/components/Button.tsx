@@ -1,45 +1,54 @@
 import React from 'react'
 import { ButtonStyle } from './Button.style'
 
-export interface IButtonProps {
+export type IButtonProps = {
   /**
-   * What background color to use -unused
+   * Optional. What background color to use
    */
   backgroundColor?: string
   /**
-   * How large should the button be?
+   * Optional. How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large'
+  scale?: 'small' | 'medium' | 'large'
   /**
-   * What is the button type?
+   * Optional. What is the button type?
    */
   variant?: 'primary' | 'secondary' | 'outline'
   /**
-   * Optional click handler
+   * Optional. click handler
    */
   onClick?: () => void
   /**
-   * Optional child / button contents
+   * Optional. child / button contents
    */
-  children?: React.ReactNode
+  children?: React.ReactNode | string
+  /**
+   * Optional. html button attribute
+   */
+  type?: 'submit' | 'button' | 'reset' | undefined
+  /**
+   * Optional. html button attribute
+   */
+  disabled?: boolean
 }
 
 /**
  * Primary UI component for user interaction
  */
 export const Button: React.FC<IButtonProps> = ({
-  size = 'medium',
+  scale = 'medium',
   variant = 'outline',
   backgroundColor,
   children,
+  type = 'button',
   ...props
 }) => {
   return (
     <ButtonStyle
       backgroundColor={backgroundColor}
-      size={size}
+      scale={scale}
       variant={variant}
-      type="button"
+      type={type}
       {...props}
     >
       {children}

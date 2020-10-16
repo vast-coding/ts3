@@ -1,74 +1,54 @@
 import styled, { css, IDefaultTheme } from 'styled-components'
 
 type TSize = {
-  size?: 'small' | 'medium' | 'large'
+  scale: 'small' | 'medium' | 'large'
 }
 
-const sizes = ({ size }: TSize) => {
-  if (size === 'small') {
-    return css`
+const styleSizes = ({ scale }: TSize) =>
+  ({
+    small: css`
       font-size: 12px;
       padding: 0 8px;
       border: 1px solid red;
       height: 16px;
-    `
-  }
-
-  const defaultSize = css`
-    font-size: 16px;
-    padding: 0 16px;
-    border: 1px solid blue;
-    height: 32px;
-  `
-
-  if (size === 'medium') {
-    return defaultSize
-  }
-
-  if (size === 'large') {
-    return css`
+    `,
+    medium: css`
       font-size: 16px;
+      padding: 0 16px;
+      border: 1px solid blue;
+      height: 32px;
+    `,
+    large: css`
+      font-size: 20px;
       padding: 0 24px;
       border: 1px solid green;
       height: 40px;
-    `
-  }
-
-  return defaultSize
-}
+    `,
+  }[scale])
 
 type TVariant = {
-  variant?: 'primary' | 'secondary' | 'outline'
+  variant: 'primary' | 'secondary' | 'outline'
   theme: IDefaultTheme
 }
 
-const variants = ({ variant, theme }: TVariant) => {
-  if (variant === 'primary') {
-    return css`
+const styleVariants = ({ theme, variant }: TVariant) =>
+  ({
+    primary: css`
       border: 1px solid ${theme.primaryColor};
       background: ${theme.primaryColor};
       color: white;
-    `
-  }
-  if (variant === 'secondary') {
-    return css`
+    `,
+    secondary: css`
       border: 1px solid ${theme.secondaryColor};
       background: ${theme.secondaryColor};
       color: white;
-    `
-  }
-  if (variant === 'outline') {
-    return css`
+    `,
+    outline: css`
       border: 1px solid ${theme.secondaryColor};
-      background: white;
-    `
-  }
-  // Outline is default
-  return css`
-    border: 1px solid ${theme.secondaryColor};
-    background: white;
-  `
-}
+      background: transparent;
+      color: ${theme.secondaryColor};
+    `,
+  }[variant])
 
 type TBg = {
   backgroundColor?: string
@@ -82,11 +62,27 @@ const overideBg = ({ backgroundColor }: TBg) => {
     `
   }
 }
+
 type TButtonStyles = TSize & TVariant & TBg
 
 export const ButtonStyle = styled.button<TButtonStyles>`
   border-radius: 4px;
-  ${sizes};
-  ${variants};
+  cursor: pointer;
+  ${styleSizes};
+  ${styleVariants};
   ${overideBg};
+  &:disabled {
+    border-color: grey;
+    background: lightgray;
+    color: darkgrey;
+    cursor: not-allowed;
+  }
+  &:active {
+    border: 1px solid red;
+    background: orange;
+    transition: transform 0.05s ease-out;
+    transform: scale(0.95);
+  }
 `
+
+ButtonStyle.displayName = 'StyleButton'
