@@ -1,5 +1,6 @@
 import { colors } from './colors'
 import { IDefaultTheme } from 'styled-components'
+import { typography } from './typography'
 
 const themeLight: IDefaultTheme = {
   colorBodyBackground: 'white',
@@ -10,6 +11,7 @@ const themeLight: IDefaultTheme = {
   id: 'light',
   primaryColor: colors.primary[500],
   secondaryColor: colors.secondary[500],
+  fontSizes: typography.fontSizes,
 }
 
 export { themeLight }

@@ -1,7 +1,7 @@
 // import original module declarations
 import 'styled-components'
+import typography from './typography'
 
-// and extend them!
 declare module 'styled-components' {
   export interface IDefaultTheme {
     colorBodyBackground: string
@@ -12,5 +12,6 @@ declare module 'styled-components' {
     id: string
     primaryColor: string
     secondaryColor: string
+    fontSizes: typeof typography.fontSizes
   }
 }

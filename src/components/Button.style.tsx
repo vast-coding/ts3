@@ -2,29 +2,32 @@ import styled, { css, IDefaultTheme } from 'styled-components'
 
 type TSize = {
   scale: 'small' | 'medium' | 'large'
+  theme: IDefaultTheme
 }
 
-const styleSizes = ({ scale }: TSize) =>
-  ({
+const styleSizes = ({ scale, theme }: TSize) => {
+  return {
     small: css`
-      font-size: 12px;
+      font-size: ${theme.fontSizes[0]}px;
       padding: 0 8px;
       border: 1px solid red;
       height: 16px;
     `,
     medium: css`
-      font-size: 16px;
+      font-size: ${theme.fontSizes[1]}px;
       padding: 0 16px;
       border: 1px solid blue;
       height: 32px;
     `,
     large: css`
       font-size: 20px;
+      font-size: ${theme.fontSizes[2]}px;
       padding: 0 24px;
       border: 1px solid green;
       height: 40px;
     `,
-  }[scale])
+  }[scale]
+}
 
 type TVariant = {
   variant: 'primary' | 'secondary' | 'outline'
@@ -68,6 +71,8 @@ type TButtonStyles = TSize & TVariant & TBg
 export const ButtonStyle = styled.button<TButtonStyles>`
   border-radius: 4px;
   cursor: pointer;
+  overflow: hidden;
+  line-height: 1;
   ${styleSizes};
   ${styleVariants};
   ${overideBg};
