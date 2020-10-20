@@ -4,7 +4,18 @@ import { themeDark } from './themeDark'
 
 export const useThemeColors = (defaultColors = themeLight) => {
   const [themeColors, setThemeColors] = useState(defaultColors)
-  const toggleThemeColors = () =>
+
+  const setDark = () => {
+    setThemeColors((prev) => themeDark)
+  }
+
+  const setLight = () => {
+    setThemeColors((prev) => themeLight)
+  }
+
+  const toggleThemeColors = (newTheme: string) => {
     setThemeColors((prev) => (prev.id === 'light' ? themeDark : themeLight))
-  return { themeColors, toggleThemeColors }
+  }
+
+  return { themeColors, toggleThemeColors, setLight, setDark }
 }
