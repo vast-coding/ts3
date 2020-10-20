@@ -6,17 +6,23 @@ import {
   GlobalStyle,
   themeLight,
   useTypography,
+  useThemeColors,
 } from 'themes'
 
 export const App = () => {
   const { fontSizes, increaseFontSize, decreaseFontSize } = useTypography(
     defaultFontScale
   )
-
+  const { themeColors, toggleThemeColors } = useThemeColors(themeLight)
+  const theme = {
+    ...themeColors,
+    decreaseFontSize,
+    fontSizes,
+    increaseFontSize,
+    toggleThemeColors,
+  }
   return (
-    <ThemeProvider
-      theme={{ ...themeLight, fontSizes, increaseFontSize, decreaseFontSize }}
-    >
+    <ThemeProvider theme={theme}>
       <GlobalStyle />
       <div>
         App
@@ -25,6 +31,9 @@ export const App = () => {
         </Button>
         <Button scale="large" onClick={increaseFontSize}>
           +A
+        </Button>
+        <Button scale="large" onClick={toggleThemeColors}>
+          Theme
         </Button>
         <Button> default </Button>
         <Button scale="large" disabled>

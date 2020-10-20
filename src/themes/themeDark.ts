@@ -2,15 +2,19 @@ import { colors } from './colors'
 import { IDefaultTheme } from 'styled-components'
 import { typography } from './typography'
 
-const { primary, secondary, greys } = colors
+const {
+  primaryDark: primary,
+  secondaryDark: secondary,
+  greysDark: greys,
+} = colors
 
-const themeLight: IDefaultTheme = {
+const themeDark: IDefaultTheme = {
   colorBodyBackground: 'white',
   colorBodyFont: 'black',
   colorContent: colors.greys[7],
   colorSubTitle: colors.primary[7],
   colorTitle: colors.primary[9],
-  id: 'light',
+  id: 'dark',
   primaryColor: colors.primary[5],
   primaryColorHover: colors.primary[6],
   secondaryColor: colors.secondary[5],
@@ -21,4 +25,4 @@ const themeLight: IDefaultTheme = {
   greys,
 }
 
-export { themeLight }
+export { themeDark }

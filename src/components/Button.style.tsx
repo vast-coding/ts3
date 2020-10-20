@@ -10,20 +10,16 @@ const styleSizes = ({ scale, theme }: TSize) => {
     small: css`
       font-size: ${theme.fontSizes[0]}px;
       padding: 0 8px;
-      border: 1px solid red;
       height: 16px;
     `,
     medium: css`
       font-size: ${theme.fontSizes[1]}px;
       padding: 0 16px;
-      border: 1px solid blue;
       height: 32px;
     `,
     large: css`
-      font-size: 20px;
       font-size: ${theme.fontSizes[2]}px;
       padding: 0 24px;
-      border: 1px solid green;
       height: 40px;
     `,
   }[scale]
@@ -37,19 +33,31 @@ type TVariant = {
 const styleVariants = ({ theme, variant }: TVariant) =>
   ({
     primary: css`
-      border: 1px solid ${theme.primaryColor};
-      background: ${theme.primaryColor};
-      color: white;
+      border: 1px solid ${theme.primary[5]};
+      background: ${theme.primary[5]};
+      color: ${theme.primary[0]};
+      &:hover {
+        border-color: ${theme.primary[6]};
+        background: ${theme.primary[6]};
+      }
     `,
     secondary: css`
-      border: 1px solid ${theme.secondaryColor};
-      background: ${theme.secondaryColor};
-      color: white;
+      border: 1px solid ${theme.secondary[4]};
+      background: ${theme.secondary[5]};
+      color: ${theme.secondary[0]};
+      &:hover {
+        border-color: ${theme.secondary[6]};
+        background: ${theme.secondary[6]};
+      }
     `,
     outline: css`
-      border: 1px solid ${theme.secondaryColor};
+      border: 1px solid ${theme.secondary[5]};
       background: transparent;
-      color: ${theme.secondaryColor};
+      color: ${theme.secondary[5]};
+      &:hover {
+        border-color: ${theme.secondary[6]};
+        color: ${theme.secondary[6]};
+      }
     `,
   }[variant])
 
@@ -77,16 +85,27 @@ export const ButtonStyle = styled.button<TButtonStyles>`
   ${styleVariants};
   ${overideBg};
   &:disabled {
-    border-color: grey;
-    background: lightgray;
-    color: darkgrey;
+    border-color: ${(props) => props.theme.greys[6]};
+    background: ${(props) => props.theme.greys[2]};
+    color: ${(props) => props.theme.greys[6]};
     cursor: not-allowed;
   }
+  &:focus {
+    outline: none;
+    border: 1px solid #4d90fe;
+    box-shadow: 0px 0px 0px 2px #4d90fe;
+    z-index: 10;
+    -webkit-appearance: none;
+    position: relative;
+    transition: box-shadow 0.1s ease-in-out;
+  }
+
   &:active {
-    border: 1px solid red;
-    background: orange;
     transition: transform 0.05s ease-out;
     transform: scale(0.95);
+  }
+  &:hover {
+    /* border: 3px solid red; */
   }
 `
 

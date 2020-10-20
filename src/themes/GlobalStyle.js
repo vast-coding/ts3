@@ -22,10 +22,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: ${(props) => props.theme.colorBodyBackground};
+    background: ${(props) => props.theme.greys[0]};
     min-height: 100vh;
     margin: 0;
-    color: ${(props) => props.theme.colorBodyFont};
+    color: ${(props) => props.theme.greys[9]};
     box-sizing:border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
