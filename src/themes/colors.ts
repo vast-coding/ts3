@@ -1,5 +1,5 @@
 export const primary: TColors = [
-  'hsl(205, 35%, 75%)',
+  'hsl(205, 35%, 90%)',
   'hsl(210, 38%, 70%)',
   'hsl(215, 41%, 65%)',
   'hsl(220, 44%, 60%)',
@@ -38,7 +38,7 @@ export const greys: TColors = [
 ]
 
 export const primaryDark: TColors = [
-  'hsl(205, 25%, 65%)',
+  'hsl(205, 25%, 80%)',
   'hsl(210, 28%, 60%)',
   'hsl(215, 31%, 55%)',
   'hsl(220, 34%, 50%)',

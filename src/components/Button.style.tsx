@@ -42,7 +42,7 @@ const styleVariants = ({ theme, variant }: TVariant) =>
       }
     `,
     secondary: css`
-      border: 1px solid ${theme.secondary[4]};
+      border: 1px solid ${theme.secondary[5]};
       background: ${theme.secondary[5]};
       color: ${theme.secondary[0]};
       &:hover {
@@ -51,12 +51,12 @@ const styleVariants = ({ theme, variant }: TVariant) =>
       }
     `,
     outline: css`
-      border: 1px solid ${theme.secondary[5]};
+      border: 1px solid ${theme.primary[5]};
       background: transparent;
-      color: ${theme.secondary[5]};
+      color: ${theme.primary[4]};
       &:hover {
-        border-color: ${theme.secondary[6]};
-        color: ${theme.secondary[6]};
+        border-color: ${theme.primary[6]};
+        color: ${theme.primary[6]};
       }
     `,
   }[variant])
