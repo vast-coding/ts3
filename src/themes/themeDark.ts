@@ -3,7 +3,7 @@ import { IDefaultTheme } from 'styled-components'
 import { typography } from './typography'
 
 const {
-  primaryDark: primary,
+  primaryDarkReversed: primary,
   secondaryDark: secondary,
   greysDark: greys,
 } = colors

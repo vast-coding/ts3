@@ -51,12 +51,12 @@ const styleVariants = ({ theme, variant }: TVariant) =>
       }
     `,
     outline: css`
-      border: 1px solid ${theme.primary[5]};
+      border: 1px solid ${theme.primary[6]};
       background: transparent;
-      color: ${theme.primary[4]};
+      color: ${theme.primary[6]};
       &:hover {
-        border-color: ${theme.primary[6]};
-        color: ${theme.primary[6]};
+        border-color: ${theme.primary[9]};
+        color: ${theme.primary[9]};
       }
     `,
   }[variant])
@@ -92,8 +92,9 @@ export const ButtonStyle = styled.button<TButtonStyles>`
   }
   &:focus {
     outline: none;
-    border: 1px solid #4d90fe;
-    box-shadow: 0px 0px 0px 2px #4d90fe;
+    /* border: 1px solid #4d90fe; */
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.greys[0]},
+      0px 0px 0px 4px #4d90fe;
     z-index: 10;
     -webkit-appearance: none;
     position: relative;
@@ -105,7 +106,6 @@ export const ButtonStyle = styled.button<TButtonStyles>`
     transform: scale(0.95);
   }
   &:hover {
-    /* border: 3px solid red; */
   }
 `
 

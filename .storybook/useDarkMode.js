@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import addons from '@storybook/addons'
 
 /**
- * set a global variable 'storedItem',
+ * update a global variable 'storedItem',
  * everytime darkmode is saved to LS
  */
 window.addEventListener(
