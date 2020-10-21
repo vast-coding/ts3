@@ -1,5 +1,7 @@
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 import { Button } from 'components'
 import {
   defaultFontScale,
@@ -8,6 +10,8 @@ import {
   useTypography,
   useThemeColors,
 } from 'themes'
+import { Login } from 'components/pages/Login'
+import { Home } from 'components/pages/Home'
 
 export const App = () => {
   const { fontSizes, increaseFontSize, decreaseFontSize } = useTypography(
@@ -24,6 +28,16 @@ export const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <BrowserRouter>
+        <Switch>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/">
+            <Home />
+          </Route>
+        </Switch>
+      </BrowserRouter>
       <div>
         App
         <Button scale="small" onClick={decreaseFontSize}>

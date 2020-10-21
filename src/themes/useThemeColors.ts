@@ -13,7 +13,7 @@ export const useThemeColors = (defaultColors = themeLight) => {
     setThemeColors((prev) => themeLight)
   }
 
-  const toggleThemeColors = (newTheme: string) => {
+  const toggleThemeColors = () => {
     setThemeColors((prev) => (prev.id === 'light' ? themeDark : themeLight))
   }
 
