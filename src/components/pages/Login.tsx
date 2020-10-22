@@ -1,5 +1,4 @@
 import React from 'react'
+import { PageLayout } from 'components/PageLayout'
 
-export const Login = () => 
-  <div>Login</div>
-
+export const Login = () => <PageLayout>Login</PageLayout>

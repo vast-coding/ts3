@@ -49,18 +49,9 @@ export const primaryDark: TColors = [
   'hsl(245, 31%, 25%)',
   'hsl(250, 28%, 20%)',
 ]
-export const primaryDarkReversed: TColors = [
-  'hsl(250, 28%, 20%)',
-  'hsl(245, 31%, 25%)',
-  'hsl(240, 34%, 30%)',
-  'hsl(235, 37%, 35%)',
-  'hsl(230, 40%, 40%)',
-  'hsl(225, 37%, 45%)',
-  'hsl(220, 34%, 50%)',
-  'hsl(215, 31%, 55%)',
-  'hsl(210, 28%, 60%)',
-  'hsl(205, 25%, 80%)',
-]
+
+export const primaryDarkReversed: TColors = [...primaryDark].reverse()
+
 export const secondaryDark: TColors = [
   'hsl(235, 15%, 80%)',
   'hsl(240, 20%, 72%)',
@@ -73,6 +64,8 @@ export const secondaryDark: TColors = [
   'hsl(275, 25%, 16%)',
   'hsl(280, 20%, 8%)',
 ]
+
+export const secondaryDarkReversed: TColors = [...secondaryDark].reverse()
 
 export const greysDark: TColors = [
   'hsl(238, 11%, 8%)',
@@ -87,18 +80,9 @@ export const greysDark: TColors = [
   'hsl(120, 10%, 90%)',
 ]
 
-type TColors = [
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string,
-  string
-]
+export const greysDarkReversed: TColors = [...greysDark].reverse()
+
+type TColors = string[]
 
 export const colors = {
   primary,
@@ -106,6 +90,8 @@ export const colors = {
   primaryDarkReversed,
   secondary,
   secondaryDark,
+  secondaryDarkReversed,
   greys,
   greysDark,
+  greysDarkReversed,
 }

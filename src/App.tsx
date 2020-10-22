@@ -10,8 +10,7 @@ import {
   useTypography,
   useThemeColors,
 } from 'themes'
-import { Login } from 'components/pages/Login'
-import { Home } from 'components/pages/Home'
+import { Home, Login } from 'components/pages'
 
 export const App = () => {
   const { fontSizes, increaseFontSize, decreaseFontSize } = useTypography(

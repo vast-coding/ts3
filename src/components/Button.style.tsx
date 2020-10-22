@@ -51,12 +51,12 @@ const styleVariants = ({ theme, variant }: TVariant) =>
       }
     `,
     outline: css`
-      border: 1px solid ${theme.primary[6]};
+      border: 1px solid ${theme.greys[6]};
       background: transparent;
-      color: ${theme.primary[6]};
+      color: ${theme.greys[6]};
       &:hover {
-        border-color: ${theme.primary[9]};
-        color: ${theme.primary[9]};
+        border-color: ${theme.greys[9]};
+        color: ${theme.greys[9]};
       }
     `,
   }[variant])
@@ -81,6 +81,8 @@ export const ButtonStyle = styled.button<TButtonStyles>`
   cursor: pointer;
   overflow: hidden;
   line-height: 1;
+  user-select: none;
+
   ${styleSizes};
   ${styleVariants};
   ${overideBg};

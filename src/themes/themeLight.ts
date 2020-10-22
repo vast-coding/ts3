@@ -2,7 +2,14 @@ import { colors } from './colors'
 import { IDefaultTheme } from 'styled-components'
 import { typography } from './typography'
 
-const { primary, secondary, greys } = colors
+const {
+  primary,
+  secondary,
+  greys,
+  primaryDarkReversed,
+  secondaryDarkReversed,
+  greysDarkReversed,
+} = colors
 
 const themeLight: IDefaultTheme = {
   colorBodyBackground: 'white',
@@ -19,6 +26,9 @@ const themeLight: IDefaultTheme = {
   primary,
   secondary,
   greys,
+  primaryDarkReversed,
+  secondaryDarkReversed,
+  greysDarkReversed,
 }
 
 export { themeLight }

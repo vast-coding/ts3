@@ -1,7 +1,7 @@
 // import original module declarations
 import 'styled-components'
 import typography from './typography'
-import colors, { primary, secondary, greys } from './colors'
+import colors, { primary, secondary, greys, TColors } from './colors'
 
 declare module 'styled-components' {
   export interface IDefaultTheme {
@@ -16,8 +16,11 @@ declare module 'styled-components' {
     secondaryColor: string
     secondaryColorHover: string
     fontSizes: typeof typography.fontSizes
-    primary: typeof primary
-    secondary: typeof primary
-    greys: typeof primary
+    primary: TColors
+    secondary: TColors
+    greys: TColors
+    primaryDarkReversed: TColors
+    secondaryDarkReversed: TColors
+    greysDarkReversed: TColors
   }
 }
