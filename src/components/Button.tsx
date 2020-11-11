@@ -1,5 +1,5 @@
-import React from 'react'
 import { ButtonStyle } from './Button.style'
+import React from 'react'
 
 export type IButtonProps = {
   /**

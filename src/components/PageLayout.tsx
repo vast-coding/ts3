@@ -1,8 +1,8 @@
+import { Header, Text } from 'components'
 import React, { ReactNode } from 'react'
 
 import styled from 'styled-components'
 
-import { Header } from 'components'
 const Content = styled.main`
   max-width: 800px;
   margin: 80px auto 0 auto;
@@ -16,6 +16,7 @@ export function PageLayout({ children }: TPageLayoutProps) {
     <>
       <Header></Header>
       <Content>{children}</Content>
+      <Text></Text>
     </>
   )
 }

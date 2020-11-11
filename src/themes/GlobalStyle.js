@@ -33,6 +33,9 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+  p{
+    font-size: ${(props) => props.theme.fontSizes[0]}px;
+  }
 
 `
 export { GlobalStyle }

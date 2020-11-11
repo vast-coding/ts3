@@ -35,7 +35,7 @@ type TToggleProps = {
 
 export const Toggle: React.FC<TToggleProps> = ({ isActive, onToggle }) => {
   return (
-    <ToggleWrapper onClick={onToggle}>
+    <ToggleWrapper tabIndex={0} onClick={onToggle}>
       <Notch isActive={isActive}></Notch>
     </ToggleWrapper>
   )

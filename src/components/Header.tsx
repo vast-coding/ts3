@@ -1,16 +1,13 @@
-import React, { useState, useContext } from 'react'
-
-import styled, { ThemeContext } from 'styled-components'
-import { Link as ReactRouterDomLink, useLocation } from 'react-router-dom'
 import { Button, Toggle } from 'components'
+import React, { useContext, useState } from 'react'
+import { Link as ReactRouterDomLink, useLocation } from 'react-router-dom'
+import styled, { ThemeContext } from 'styled-components'
 
 const HeaderWrapper = styled.header`
   height: 60px;
   width: 100%;
   display: flex;
-  > button {
-    padding: 0 16px;
-  }
+
   position: fixed;
   top: 0;
   background: linear-gradient(
@@ -34,6 +31,9 @@ const Menu = styled.nav<TMenuProps>`
   padding: 8px;
   border-bottom: 3px solid ${(props) => props.theme.secondaryColor};
   background: ${(props) => props.theme.bodyBackgroundColor};
+  > button {
+    margin-left: 16px;
+  }
   @media (min-width: 760px) {
     display: flex;
     position: relative;
@@ -84,7 +84,6 @@ const MobileMenuIcon = styled.div`
 `
 
 export function Header() {
-  console.log('Header()')
   const { pathname } = useLocation()
   const [menuOpen, setMenuOpen] = useState(false)
   const {
@@ -102,16 +101,14 @@ export function Header() {
         <div></div>
         <div></div>
       </MobileMenuIcon>
-      <Menu isOpen={menuOpen}>
+      <Menu aria-label="main" isOpen={menuOpen}>
         <StyledLink to="/" isActive={pathname === '/'}>
           Home
         </StyledLink>
         <StyledLink to="/login" isActive={pathname === '/login'}>
           Login
         </StyledLink>
-        <StyledLink to="/palette" isActive={pathname === '/palette'}>
-          Palette
-        </StyledLink>
+
         <Toggle isActive={id === 'dark'} onToggle={toggleThemeColors} />
         <Button variant="primary" onClick={decreaseFontSize}>
           -a+
